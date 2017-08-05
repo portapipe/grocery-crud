@@ -2826,7 +2826,7 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 					&& $this->change_field_type[$field->field_name]->type == 'hidden') {
 				continue;
 			}
-			$this->field_type($field->field_name, 'readonly');
+			//$this->field_type($field->field_name, 'readonly');
 		}
 
 		$fields = $this->get_read_fields();
@@ -2842,6 +2842,8 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 			if(!isset($this->callback_read_field[$field->field_name]))
 			{
 				$field_input = $this->get_field_input($field_info, $field_value);
+				$field_input->input = $this->change_list_value($field_info, $field_value);
+
 			}
 			else
 			{
